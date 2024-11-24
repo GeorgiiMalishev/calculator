@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>КАЛЬКУЛЯТОР РЕСУРСОВ SOC</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <section class="calculator">
+      <div class="select-calculators-container">
+        <select class="select-calculators-container__select" name="calculators">
+          <option value="1">Калькулятор 1</option>
+          <option value="2">Калькулятор 2</option>
+          <option value="3">Калькулятор 3</option>
+        </select>
+        <button class="select-calculators-container__select-btn">
+          <img class="select-btn__img" src="{% static 'images/select_icon.svg' %}" />
+        </button>
+      </div>
+      <div class="calculator-count-btn-container">
+        <button class="calculator-count-btn fact-btn">
+          Фактические расчеты
+        </button>
+        <button class="calculator-count-btn plan-btn">Плановые расчеты</button>
+        <select id="download-select" class="calculator-count-btn download-btn">
+          <option value="" disabled selected>Выгрузить расчеты</option>
+          <option value="doc">.doc</option>
+          <option value="pdf">.PDF</option>
+          <option value="xlsx">EXСEL</option>
+        </select>
+      </div>
+      <div class="calculator-tabel">
+        <div class="calculator-tabel-first-column">
+          <div class="calculator-tabel-main-title-row">
+            Фактически среднее<br />кол-во файлов в месяц
+          </div>
+          <div class="calculator-tabel-main-title-row">
+            Кол-во новых<br />
+            пользователей
+          </div>
+          <div class="calculator-tabel-main-title-row">
+            Фактическое<br />
+            кол-во машин
+          </div>
+        </div>
+        <div class="calculator-tabel-second-column">
+          <input type="number" class="item-container-field" name = 'new_users'>
+          <div class="calculator-column-item-container">
+            <div class="item-container-date">180ч</div>
+            <input type="number" class="item-container-field" name = 'fact_machine_count_180'>
+          </div>
+        </div>
+        <div class="calculator-tabel-third-column">
+          <div class="calculator-column-item-container">
+            <div class="item-container-date">День</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day'>
+          </div>
+          <div class="calculator-column-item-container sec-col">
+            <div class="item-container-date">168ч</div>
+            <input type="number" class="item-container-field" name = 'fact_machine_count_168'>
+          </div>
+        </div>
+        <div class="calculator-tabel-forth-column">
+          <div class="calculator-column-item-container">
+            <div class="item-container-date">ночь/пр/вых</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day_weekends'>
+          </div>
+          <div class="calculator-column-item-container thir-col">
+            <div class="item-container-date">79ч</div>
+            <input type="number" class="item-container-field" name = 'fact_machine_count_79'>
+          </div>
+        </div>
+        <div class="calculator-tabel-fifth-column">
+          <div class="calculator-column-item-container">
+            <div class="item-container-date">день/пр/вых</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_night_weekends'>
+          </div>
+        </div>
+      </div>
+      <div id="results-container" style="overflow: auto; max-width: 100%;"></div>
+      <footer class="calculator-footer">
+        <div class="footer-title">КАЛЬКУЛЯТОР РЕСУРСОВ SOC</div>
+      </footer>
+    </section>
+  <script src="{% static 'scripts/script.js' %}"></script>
+  </body>
+</html>
+
+

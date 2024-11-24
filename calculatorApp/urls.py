@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('calculator/', views.calculator_view, name='calculator'),  # Путь к HTML странице
-    path('calculate/', views.calculate, name='calculate'),  # Путь для выполнения расчетов (должен быть уже настроен)
+    path('export/', views.export_excel, name='export_excel'),
+    path('calculate-fact/', views.calculate_fact, name='calculate_fact'),
+    path('calculate-plan/', views.calculate_plan, name='calculate_plan'),
+    path('calculator/<str:calculator_name>/', views.calculator_view, name='calculator_view')
 ]

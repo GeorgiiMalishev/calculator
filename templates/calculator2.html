@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>КАЛЬКУЛЯТОР РЕСУРСОВ SOC</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <section class="calculator">
+      <div class="select-calculators-container">
+        <select class="select-calculators-container__select" name="calculators">
+          <option value="1">Калькулятор 1</option>
+          <option value="2">Калькулятор 2</option>
+          <option value="3">Калькулятор 3</option>
+        </select>
+        <button class="select-calculators-container__select-btn">
+          <img class="select-btn__img" src="{% static 'images/select_icon.svg' %}" />
+        </button>
+      </div>
+      <div class="calculator-count-btn-container">
+        <button class="calculator-count-btn fact-btn">
+          Фактические расчеты
+        </button>
+        <button class="calculator-count-btn plan-btn">Плановые расчеты</button>
+        <select class="calculator-count-btn download-btn">
+          <option value="" disabled selected>Выгрузить расчеты</option>
+          <option value="doc">.doc</option>
+          <option value="pdf">.PDF</option>
+          <option value="exel">EXСEL</option>
+        </select>
+      </div>
+      <footer class="calculator-footer">
+        <div class="footer-title">КАЛЬКУЛЯТОР РЕСУРСОВ SOC</div>
+      </footer>
+    </section>
+  <script src="{% static 'scripts/script.js' %}"></script>
+  </body>
+</html>

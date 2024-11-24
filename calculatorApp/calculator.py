@@ -5,9 +5,8 @@ from calculatorApp.formula import Formula
 
 
 class Calculator(ABC):
-    def __init__(self, data: Dict[str, float], formulas: List[Formula]):
-        self.data = data
-        self.formulas = formulas
+    def __init__(self, input_data: Dict[str, float]):
+        self.input_data = input_data
 
     @abstractmethod
     def calculate(self):
