@@ -2,6 +2,17 @@ from calculatorApp.excelTemplateFiller import ExcelTemplateFiller
 
 
 def fact(data):
+    """
+        Заполняет шаблон Excel для фактических данных.
+
+        Этот метод заполняет шаблон Excel, основываясь на фактических данных и вычисленных результатах.
+
+        Параметры:
+            data (dict): Данные, полученные из калькулятора.
+
+        Возвращает:
+            excel_template_filler.fill_data: Заполненный шаблон Excel.
+        """
     excel_template_filler = ExcelTemplateFiller("static/excelTemplates/factTemplate1.xlsx")
     compares = {
         "B3": "Факт максимальное кол-во файлов 180 часов",
@@ -24,6 +35,17 @@ def fact(data):
 
 
 def plan(data):
+    """
+        Заполняет шаблон Excel для планируемых данных.
+
+        Этот метод заполняет шаблон Excel, основываясь на планируемых данных.
+
+        Параметры:
+            data (dict): Данные, полученные из калькулятора.
+
+        Возвращает:
+            excel_template_filler.fill_data: Заполненный шаблон Excel.
+        """
     excel_template_filler = ExcelTemplateFiller("static/excelTemplates/planTemplate1.xlsx")
     compares = {
         "B3": "Ср колво файлов новых УЗ в месяц день",
@@ -52,6 +74,18 @@ def plan(data):
 
 
 def compare_data(compares, data):
+    """
+        Сравнивает и выбирает данные для заполнения шаблона Excel.
+
+        Этот метод используется для подготовки данных, которые будут вставлены в шаблон Excel.
+
+        Параметры:
+            compares (dict): Словарь с соответствиями ячеек и ключей данных.
+            data (dict): Данные, полученные из калькулятора.
+
+        Возвращает:
+            dict: Подготовленные данные для заполнения шаблона.
+        """
     result = {}
     for key, value in compares.items():
         result[key] = data[value]
@@ -59,6 +93,17 @@ def compare_data(compares, data):
 
 
 def fact_plan(data):
+    """
+        Заполняет шаблон Excel для комбинированных данных (фактические и планируемые).
+
+        Этот метод заполняет комбинированный шаблон Excel, который включает как фактические, так и планируемые данные.
+
+        Параметры:
+            data (dict): Данные, полученные из калькулятора.
+
+        Возвращает:
+            excel_template_filler.fill_data: Заполненный комбинированный шаблон Excel.
+        """
     excel_template_filler = ExcelTemplateFiller("static/excelTemplates/fact_planTemplate1.xlsx")
     compares = {
         "B3": "Факт максимальное кол-во файлов 180 часов",

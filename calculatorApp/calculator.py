@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Dict, Any, List
-
-from calculatorApp.formula import Formula
+from typing import Dict
 
 
 class Calculator(ABC):
