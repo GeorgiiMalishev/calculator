@@ -1,0 +1,211 @@
+body {
+  background: rgb(0, 0, 0);
+}
+.calculator {
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+  height: auto;
+  max-width: 1000px;
+  position: relative;
+}
+.select-calculators-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 44px;
+}
+.select-calculators-container__select {
+  appearance: none;
+  width: 100%;
+  height: 56px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(232, 178, 89);
+  color: rgb(61, 61, 61);
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 44px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding-left: 23px;
+}
+.select-calculators-container__select-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  top: 10px;
+  right: 33px;
+}
+.calculator-count-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 15px;
+  margin-left: 14px;
+}
+.calculator-count-btn {
+  box-sizing: border-box;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  width: 278px;
+  height: 52px;
+  color: rgb(255, 255, 255);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 100px;
+}
+.calculator-tabel {
+  margin-left: 150px;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-areas:
+    "first-column second-column third-column forth-column fifth-column"
+    "first-column second-column third-column forth-column fifth-column"
+    "first-column second-column third-column forth-column fifth-column";
+}
+.calculator-tabel-main-title-row {
+  width: 177px;
+  height: 107px;
+  left: 82px;
+  background: rgb(232, 178, 89);
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.calculator-column-item-container {
+  display: flex;
+  flex-direction: column;
+  width: 129px;
+  gap: 18px;
+}
+.item-container-date {
+  border-radius: 2px;
+  background: rgb(232, 178, 89);
+  width: 129px;
+  height: 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.item-container-field {
+  appearance: none;
+  padding: 20px;
+  font-size: 24px;
+  box-sizing: border-box;
+  resize: none;
+  width: 129px;
+  border-radius: 10px;
+  height: 65px;
+  background: rgb(232, 178, 89);
+}
+.item-container-field:focus{
+  outline: none;
+
+}
+.item-container-field:active{
+  background: rgb(235, 190, 116);
+  outline: none;
+}
+.item-container-field:hover{
+  outline: 2px solid rgb(255, 255, 255);
+}
+.calculator-tabel-first-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-tabel-first-column {
+  grid-area: first-column;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-tabel-second-column {
+  /* padding-top: 172px; */
+  grid-area: second-column;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-tabel-third-column {
+  grid-area: third-column;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-tabel-forth-column {
+  grid-area: forth-column;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-tabel-fifth-column {
+  grid-area: fifth-column;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.calculator-footer {
+  position: fixed;
+  bottom: 0;
+  left: 40%;
+  border: 3px solid rgb(255, 255, 255);
+  padding-left: 67px;
+  padding-right: 67px;
+  padding-top: 12px;
+  border-bottom: none;
+}
+.footer-title {
+  color: rgb(255, 255, 255);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+}
+.download-btn{
+  appearance: none;
+  text-align: center;
+}
+.sec-col{
+  margin-top: 133px;
+}
+.thir-col{
+  margin-top: 133px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+body {
+    padding-bottom: 100px;
+}
+
+.second-day-container{
+  margin-bottom: 25px;
+}
+.second-item-container-field{
+  margin-bottom: 14px;
+}

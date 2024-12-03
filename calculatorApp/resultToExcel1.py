@@ -1,4 +1,5 @@
 from calculatorApp.excelTemplateFiller import ExcelTemplateFiller
+from django.templatetags.static import static
 
 
 def fact(data):

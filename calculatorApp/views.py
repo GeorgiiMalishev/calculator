@@ -33,6 +33,7 @@ def calculate_fact(request):
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Некорректный формат данных'}, status=400)
         except Exception as e:
+            print(e)
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     return JsonResponse({'status': 'error', 'message': 'Метод не поддерживается'}, status=405)
 
@@ -64,6 +65,7 @@ def calculate_plan(request):
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Некорректный формат данных'}, status=400)
         except Exception as e:
+            print(e)
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     return JsonResponse({'status': 'error', 'message': 'Метод не поддерживается'}, status=405)
 
