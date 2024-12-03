@@ -1,0 +1,113 @@
+Watching for file changes with StatReloader
+[02/Dec/2024 20:47:09] "POST /calculate-plan/ HTTP/1.1" 200 5197
+[02/Dec/2024 20:47:43] "POST /export/?format=doc HTTP/1.1" 200 37417
+Internal Server Error: /export/
+Traceback (most recent call last):
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 523, in open_for_read
+    return open_for_read_by_name(name,mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 463, in open_for_read_by_name
+    return open(name,mode)
+           ^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\malis\\AppData\\Local\\Temp\\tmp2mf61y2v.ttf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 530, in open_for_read
+    return BytesIO((datareader if name[:5].lower()=='data:' else rlUrlRead)(name))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 476, in rlUrlRead
+    return urlopen(name).read()
+           ^^^^^^^^^^^^^
+  File "C:\Users\malis\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 537, in _open
+    return self._call_chain(self.handle_open, 'unknown',
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\malis\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1420, in unknown_open
+    raise URLError('unknown url type: %s' % type)
+urllib.error.URLError: <urlopen error unknown url type: c>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 151, in TTFOpenFile
+    f = open_for_read(fn,'rb')
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 534, in open_for_read
+    return open_for_read(name,mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\lib\utils.py", line 532, in open_for_read
+    raise IOError('Cannot open resource "%s"' % name)
+OSError: Cannot open resource "C:\Users\malis\AppData\Local\Temp\tmp2mf61y2v.ttf"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\calculatorApp\views.py", line 121, in export_file
+    pdf = convert_html_to_pdf(convert_to_html(excel))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\calculatorApp\converter.py", line 194, in convert_html_to_pdf
+    pisa_status = pisa.CreatePDF(io.BytesIO(html_content.encode('utf-8')), dest=pdf)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\parser.py", line 823, in pisaParser
+    context.parseCSS()
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\context.py", line 690, in parseCSS
+    self.css = self.cssParser.parse(self.cssText)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\w3c\cssParser.py", line 458, in parse
+    src, stylesheet = self._parseStylesheet(src)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\w3c\cssParser.py", line 561, in _parseStylesheet
+    src, atResults = self._parseAtKeyword(src)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\w3c\cssParser.py", line 685, in _parseAtKeyword
+    src, result = self._parseAtFontFace(src)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\w3c\cssParser.py", line 866, in _parseAtFontFace
+    result = [self.cssBuilder.atFontFace(properties)]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\context.py", line 221, in atFontFace
+    self.c.loadFont(names, src, bold=bold, italic=italic)
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\xhtml2pdf\context.py", line 1107, in loadFont
+    file = TTFont(fullFontName, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1192, in __init__
+    self.face = TTFontFace(filename, validate=validate, subfontIndex=subfontIndex)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 1073, in __init__
+    TTFontFile.__init__(self, filename, validate=validate, subfontIndex=subfontIndex)
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 439, in __init__
+    TTFontParser.__init__(self, file, validate=validate,subfontIndex=subfontIndex)
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 175, in __init__
+    self.readFile(file)
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 251, in readFile
+    self.filename, f = TTFOpenFile(f)
+                       ^^^^^^^^^^^^^^
+  File "C:\Users\malis\PycharmProjects\calculator\.venv\Lib\site-packages\reportlab\pdfbase\ttfonts.py", line 161, in TTFOpenFile
+    raise TTFError('Can\'t open file "%s"' % fn)
+reportlab.pdfbase.ttfonts.TTFError: Can't open file "C:\Users\malis\AppData\Local\Temp\tmp2mf61y2v.ttf"
+[02/Dec/2024 20:47:44] "POST /export/?format=pdf HTTP/1.1" 500 235202
+C:\Users\malis\PycharmProjects\calculator\manage.py changed, reloading.

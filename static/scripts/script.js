@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const selectElement = document.querySelector('.select-calculators-container__select');
 
+    const selectElement2 = document.getElementById('download-select');
+    if (selectElement2) {
+      const options = selectElement2.querySelectorAll('option');
+      options.forEach(option => {
+        option.style.color = 'orange';
+      });
+    }
+
     if (!selectElement) {
         console.error("Select element not found!");
         return;

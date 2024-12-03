@@ -6,7 +6,7 @@ body {
   padding: 0;
   color: white;
   height: auto;
-  width: 100%;
+  max-width: 1000px;
   position: relative;
 }
 .select-calculators-container {
@@ -64,10 +64,11 @@ body {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  margin-bottom: 253px;
+  margin-bottom: 100px;
 }
 .calculator-tabel {
-  margin-left: 25px;
+  margin-left: 150px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-areas:
     "first-column second-column third-column forth-column fifth-column"
@@ -103,11 +104,25 @@ body {
 }
 .item-container-field {
   appearance: none;
+  padding: 20px;
+  font-size: 24px;
+  box-sizing: border-box;
   resize: none;
   width: 129px;
   border-radius: 10px;
   height: 65px;
   background: rgb(232, 178, 89);
+}
+.item-container-field:focus{
+  outline: none;
+
+}
+.item-container-field:active{
+  background: rgb(235, 190, 116);
+  outline: none;
+}
+.item-container-field:hover{
+  outline: 2px solid rgb(255, 255, 255);
 }
 .calculator-tabel-first-column {
   display: flex;
@@ -121,7 +136,7 @@ body {
   gap: 25px;
 }
 .calculator-tabel-second-column {
-  padding-top: 172px;
+  /* padding-top: 172px; */
   grid-area: second-column;
   display: flex;
   flex-direction: column;
@@ -174,7 +189,7 @@ body {
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none; // Yeah, yeah everybody write about it
+    -webkit-appearance: none; 
 }
 
 input[type='number'],
@@ -188,3 +203,9 @@ body {
     padding-bottom: 100px;
 }
 
+.second-day-container{
+  margin-bottom: 25px;
+}
+.second-item-container-field{
+  margin-bottom: 14px;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    {% load static %}
+    <!-- {% load static %} -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>КАЛЬКУЛЯТОР РЕСУРСОВ SOC</title>
@@ -10,7 +10,7 @@
   <body>
     <section class="calculator">
       <div class="select-calculators-container">
-        <select class="select-calculators-container__select" name="calculators">
+        <select aria-label="Label" class="select-calculators-container__select" name="calculators">
           <option value="1">Калькулятор 1</option>
           <option value="2">Калькулятор 2</option>
           <option value="3">Калькулятор 3</option>
@@ -46,7 +46,11 @@
           </div>
         </div>
         <div class="calculator-tabel-second-column">
-          <input type="number" class="item-container-field" name = 'new_users'>
+          <div class="calculator-column-item-container second-day-container">
+            <div class="item-container-date">День</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day'>
+          </div>
+          <input type="number" class="item-container-field second-item-container-field" name = 'new_users'>
           <div class="calculator-column-item-container">
             <div class="item-container-date">180ч</div>
             <input type="number" class="item-container-field" name = 'fact_machine_count_180'>
@@ -54,8 +58,8 @@
         </div>
         <div class="calculator-tabel-third-column">
           <div class="calculator-column-item-container">
-            <div class="item-container-date">День</div>
-            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day'>
+            <div class="item-container-date">ночь/пр/вых</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day_weekends'>
           </div>
           <div class="calculator-column-item-container sec-col">
             <div class="item-container-date">168ч</div>
@@ -64,8 +68,8 @@
         </div>
         <div class="calculator-tabel-forth-column">
           <div class="calculator-column-item-container">
-            <div class="item-container-date">ночь/пр/вых</div>
-            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_day_weekends'>
+            <div class="item-container-date">день/пр/вых</div>
+            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_night_weekends'>
           </div>
           <div class="calculator-column-item-container thir-col">
             <div class="item-container-date">79ч</div>
@@ -73,10 +77,6 @@
           </div>
         </div>
         <div class="calculator-tabel-fifth-column">
-          <div class="calculator-column-item-container">
-            <div class="item-container-date">день/пр/вых</div>
-            <input type="number" class="item-container-field" name = 'fact_avg_fails_month_night_weekends'>
-          </div>
         </div>
       </div>
       <div id="results-container" style="overflow: auto; max-width: 100%;"></div>
