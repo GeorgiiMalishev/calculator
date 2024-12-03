@@ -1,11 +1,9 @@
 import io
-from xhtml2pdf import pisa
 from docx import Document
 from docx.enum.section import WD_ORIENT
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Pt, Inches
 from fpdf import FPDF
-from bs4 import BeautifulSoup
 
 
 
