@@ -5,6 +5,8 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Pt, Inches
 from fpdf import FPDF
 
+from calculator.settings import STATIC_ROOT
+
 
 
 def convert_to_html(workbook):
@@ -142,7 +144,7 @@ def convert_excel_to_pdf(excel):
     """
     pdf = FPDF(orientation='L')
     pdf.add_page()
-    pdf.add_font('FreeSans', '', 'static/font/FreeSans.ttf', uni=True)
+    pdf.add_font('FreeSans', '', STATIC_ROOT + '/font/FreeSans.ttf', uni=True)
     pdf.set_font('FreeSans', '', 8)
 
     sheet = excel.active

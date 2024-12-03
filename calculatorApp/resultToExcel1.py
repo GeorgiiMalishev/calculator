@@ -1,5 +1,5 @@
+from calculator.settings import STATIC_ROOT
 from calculatorApp.excelTemplateFiller import ExcelTemplateFiller
-from django.templatetags.static import static
 
 
 def fact(data):
@@ -14,7 +14,7 @@ def fact(data):
         Возвращает:
             excel_template_filler.fill_data: Заполненный шаблон Excel.
         """
-    excel_template_filler = ExcelTemplateFiller("static/excelTemplates/factTemplate1.xlsx")
+    excel_template_filler = ExcelTemplateFiller(STATIC_ROOT + "/excelTemplates/factTemplate1.xlsx")
     compares = {
         "B3": "Факт максимальное кол-во файлов 180 часов",
         "B4": "Факт максимальное кол-во файлов 168 часов",
@@ -47,7 +47,7 @@ def plan(data):
         Возвращает:
             excel_template_filler.fill_data: Заполненный шаблон Excel.
         """
-    excel_template_filler = ExcelTemplateFiller("static/excelTemplates/planTemplate1.xlsx")
+    excel_template_filler = ExcelTemplateFiller(STATIC_ROOT + "/excelTemplates/planTemplate1.xlsx")
     compares = {
         "B3": "Ср колво файлов новых УЗ в месяц день",
         "B6": "Ср колво файлов новых УЗ в месяц день/пр/вых",
@@ -105,7 +105,7 @@ def fact_plan(data):
         Возвращает:
             excel_template_filler.fill_data: Заполненный комбинированный шаблон Excel.
         """
-    excel_template_filler = ExcelTemplateFiller("static/excelTemplates/fact_planTemplate1.xlsx")
+    excel_template_filler = ExcelTemplateFiller(STATIC_ROOT + "/excelTemplates/fact_planTemplate1.xlsx")
     compares = {
         "B3": "Факт максимальное кол-во файлов 180 часов",
         "B4": "Факт максимальное кол-во файлов 168 часов",
