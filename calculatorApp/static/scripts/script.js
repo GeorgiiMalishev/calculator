@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Проверка поля новых пользователей только для плановых расчетов
+        // Проверка поля новых пользователей
         const newUsersInput = document.querySelector('[name="new_users"]');
         if (!isFactCalculation) {
             const newUsersValue = parseInt(newUsersInput.value) || 0;
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputData['Общее кол-во новых пользователей (УЗ)'] = newUsersValue;
             }
         } else {
-            // Для фактических расчетов всегда передаем 0
-            inputData['Общее кол-во новых пользователей (УЗ)'] = 0;
+            // Для фактических расчетов берем текущее значение поля, а не устанавливаем 0
+            inputData['Общее кол-во новых пользователей (УЗ)'] = parseInt(newUsersInput.value) || 0;
             newUsersInput.style.borderColor = '';
         }
 
