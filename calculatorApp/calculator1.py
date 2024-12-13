@@ -49,7 +49,7 @@ class Calculator1:
         self.formulas = {
             'Общее факт среднее кол-во файлов в месяц': Formula(
                 lambda a, b, c: a + b + c,
-                ['Факт кол-во машин 180 часов', 'День факт среднее кол-во файлов в месяц',
+                ['Ночь/пр/вых факт среднее кол-во файлов в месяц', 'День факт среднее кол-во файлов в месяц',
                  'День/пр/вых факт среднее кол-во файлов в месяц']
             ),
             'Факт максимальное кол-во файлов 180 часов праздники/вых': Formula(
@@ -232,7 +232,7 @@ class Calculator1:
         # После всех вычислений округляем результаты
         for key, value in self.data.items():
             if isinstance(value, (float, int)):
-                self.data[key] = round(value)
+                self.data[key] = int(value + 0.5 if value > 0 else value - 0.5)
                 print(f"{key}: {self.data[key]}")
             else:
                 print(f"{key}: {value}")

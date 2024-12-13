@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from calculatorApp import resultToExcel1
 from calculatorApp.calculator1 import Calculator1
 from calculatorApp.converter import *
+from calculatorApp.docTemplateFiller import fill_template_from_calculator1
 
 
 @csrf_exempt
@@ -128,6 +129,13 @@ def export_file(request):
 
     elif file_format == 'doc':
         doc = convert_excel_to_word(excel)
+        response = HttpResponse(doc,
+                                content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        response['Content-Disposition'] = 'attachment; filename="file.docx"'
+        return response
+    
+    elif file_format == 'docTemplate':
+        doc = fill_template_from_calculator1(results, 'static/docTemplates/template1.docx')
         response = HttpResponse(doc,
                                 content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
         response['Content-Disposition'] = 'attachment; filename="file.docx"'

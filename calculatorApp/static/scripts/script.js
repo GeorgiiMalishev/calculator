@@ -58,6 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
             const input = document.querySelector(`[name="${fieldName}"]`);
             const value = input.value.trim();
             
+            // Специальная проверка для машин 180 часов
+            if (fieldName === 'fact_machine_count_180') {
+                if (!value || parseInt(value) === 0) {
+                    hasErrors = true;
+                    input.style.borderColor = 'red';
+                    continue;
+                }
+            }
+            
             if (!value) {
                 hasErrors = true;
                 input.style.borderColor = 'red';
@@ -202,7 +211,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedFormat = this.value;
         if (selectedFormat) {
             const data = collectAndSendData(true);
-            if (!data) return;
+            if (!data) {
+                // Сбрасываем значение select при ошибке незаполненных данных
+                this.value = '';
+                return;
+            }
+
+            // Дополнительная проверка для шаблона
+            if (selectedFormat === 'docTemplate') {
+                const newUsersInput = document.querySelector('[name="new_users"]');
+                if (!newUsersInput.value.trim() || parseInt(newUsersInput.value) === 0) {
+                    newUsersInput.style.borderColor = 'red';
+                    const errorContainer = document.getElementById('error-container');
+                    errorContainer.innerHTML = `
+                        <div class="error-message" style="color: red; text-align: center;">
+                            Для выгрузки шаблона необходимо указать количество новых пользователей
+                        </div>
+                    `;
+                    this.value = '';
+                    return;
+                }
+            }
 
             console.log('Отправляемые данные:', data);
             fetch(`/export/?format=${selectedFormat}`, {
@@ -226,13 +255,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 const a = document.createElement('a');
                 a.style.display = 'none';
                 a.href = url;
-                a.download = `file.${selectedFormat}`;
+                const extension = selectedFormat === 'docTemplate' ? 'docx' : selectedFormat;
+                a.download = `file.${extension}`;
                 document.body.appendChild(a);
                 a.click();
                 window.URL.revokeObjectURL(url);
+                
+                // Сбрасываем значение select после скачивания
+                this.value = '';
             })
             .catch(error => {
                 console.error('Ошибка при отправке данных:', error);
+                // Сбрасываем значение select также в случае ошибки
+                this.value = '';
             });
         }
     });
