@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (!selectElement) {
-        console.error("Select element not found!");
         return;
     }
 
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadSelect = document.querySelector('.download-btn');
 
     if (!factBtn || !planBtn || !downloadSelect) {
-        console.error("Calculation buttons or download select not found!");
         return;
     }
 
@@ -118,22 +116,16 @@ document.addEventListener("DOMContentLoaded", function () {
             body: JSON.stringify(data),
         })
         .then(response => {
-            console.log('Raw response:', response);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log('Ответ сервера:', data);
-
             const resultsContainer = document.getElementById('results-container');
             if (!resultsContainer) {
-                console.error("Results container not found!");
                 return;
             }
-
-            console.log('Новый HTML:', data.html_content);
             resultsContainer.innerHTML = data.html_content;
         })
         .catch(error => {
@@ -184,22 +176,16 @@ document.addEventListener("DOMContentLoaded", function () {
             body: JSON.stringify(data),
         })
         .then(response => {
-            console.log('Raw response:', response);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log('Ответ сервера:', data);
-
             const resultsContainer = document.getElementById('results-container');
             if (!resultsContainer) {
-                console.error("Results container not found!");
                 return;
             }
-
-            console.log('Новый HTML:', data.html_content);
             resultsContainer.innerHTML = data.html_content;
         })
         .catch(error => {
@@ -244,8 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => {
                 if (!response.ok) {
                     return response.text().then(text => {
-                        console.error(`HTTP error! status: ${response.status}, response: ${text}`);
-                        throw new Error(`HTTP error! status: ${response.status}, response: ${text}`);
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     });
                 }
                 return response.blob();

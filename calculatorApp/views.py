@@ -34,7 +34,6 @@ def calculate_fact(request):
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Некорректный формат данных'}, status=400)
         except Exception as e:
-            print(e)
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     return JsonResponse({'status': 'error', 'message': 'Метод не поддерживается'}, status=405)
 
@@ -66,7 +65,6 @@ def calculate_plan(request):
         except json.JSONDecodeError:
             return JsonResponse({'status': 'error', 'message': 'Некорректный формат данных'}, status=400)
         except Exception as e:
-            print(e)
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     return JsonResponse({'status': 'error', 'message': 'Метод не поддерживается'}, status=405)
 
@@ -135,7 +133,7 @@ def export_file(request):
         return response
     
     elif file_format == 'docTemplate':
-        doc = fill_template_from_calculator1(results, 'static/docTemplates/template1.docx')
+        doc = fill_template_from_calculator1(results, STATIC_ROOT + '/docTemplates/template1.docx')
         response = HttpResponse(doc,
                                 content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
         response['Content-Disposition'] = 'attachment; filename="file.docx"'

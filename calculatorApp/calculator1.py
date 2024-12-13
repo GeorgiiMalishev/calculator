@@ -233,8 +233,7 @@ class Calculator1:
         for key, value in self.data.items():
             if isinstance(value, (float, int)):
                 self.data[key] = int(value + 0.5 if value > 0 else value - 0.5)
-                print(f"{key}: {self.data[key]}")
             else:
-                print(f"{key}: {value}")
+                self.data[key] = value
                 
         return self.data
