@@ -221,3 +221,14 @@ body {
 .second-item-container-field{
   margin-bottom: 14px;
 }
+.select-btn__img {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Смещение от правого края */
+  transform: translateY(-50%);
+  pointer-events: none; /* Убираем кликабельность иконки */
+  width: 48px;
+  height: 48px;
+  visibility: visible;
+  display: block;
+}

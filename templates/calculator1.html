@@ -10,15 +10,13 @@
   <body>
     <section class="calculator">
       <div class="select-calculators-container">
-        <select aria-label="Label" class="select-calculators-container__select" name="calculators">
-          <option value="1">Калькулятор 1</option>
-          <option value="2">Калькулятор 2</option>
-          <option value="3">Калькулятор 3</option>
-        </select>
-        <button class="select-calculators-container__select-btn">
-          <img class="select-btn__img" src="{% static 'images/select_icon.svg' %}" />
-        </button>
-      </div>
+      <select aria-label="Label" class="select-calculators-container__select" name="calculators">
+        <option value="1">Калькулятор 1</option>
+        <option value="2">Калькулятор 2</option>
+        <option value="3">Калькулятор 3</option>
+      </select>
+      <img class="select-btn__img" src="{% static 'images/select_icon.svg' %}" alt="Иконка выбора">
+    </div>
       <div class="calculator-count-btn-container">
         <button class="calculator-count-btn fact-btn">
           Фактические расчеты
