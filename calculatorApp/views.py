@@ -1,4 +1,3 @@
-import io
 import json
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
@@ -23,11 +22,15 @@ def calculate_fact(request):
     """
     if request.method == 'POST':
         try:
+            #Загружаем данные и преобразуем в целочисленные значения
             data = json.loads(request.body)
             data = {key: int(value) for key, value in data.items()}
+            # Проводим рассчеты
             calculator = Calculator1(data)
             results = calculator.calculate()
+            #Преобразуем в excel
             excel = resultToExcel1.fact(results)
+            # Преобразуем в html
             html_content = convert_to_html(excel)
             context = {'html_content': html_content}
             return JsonResponse(context)
@@ -52,13 +55,17 @@ def calculate_plan(request):
     """
     if request.method == 'POST':
         try:
+            # Загружаем данные и преобразуем в целочисленные значения
             data = json.loads(request.body)
             data = {key: int(value) for key, value in data.items()}
+            # Проводим рассчеты если Общее кол-во новых пользователей (УЗ) больше 0
             calculator = Calculator1(data)
             if data['Общее кол-во новых пользователей (УЗ)'] < 1:
                 return JsonResponse({'status': 'error', 'message': 'Для плановых расчетов поле "Кол-во новыхпользователей" не должно быть пустым или 0'}, status=400)
             results = calculator.calculate()
+            # Преобразуем в excel
             excel = resultToExcel1.plan(results)
+            # Преобразуем в html
             html_content = convert_to_html(excel)
             context = {'html_content': html_content}
             return JsonResponse(context)
@@ -109,6 +116,7 @@ def export_file(request):
         excel = resultToExcel1.fact(results)
     file_format = request.GET.get('format', 'xlsx')
 
+    #Экспорт в excel
     if file_format == 'xlsx':
         buffer = io.BytesIO()
         excel.save(buffer)
@@ -118,6 +126,7 @@ def export_file(request):
         response['Content-Disposition'] = 'attachment; filename="file.xlsx"'
         return response
 
+    # Экспорт в pdf
     elif file_format == 'pdf':
         pdf = convert_excel_to_pdf(excel)
         response = HttpResponse(content_type='application/pdf')
@@ -125,13 +134,15 @@ def export_file(request):
         response.write(pdf)
         return response
 
+    # Экспорт в doc
     elif file_format == 'doc':
         doc = convert_excel_to_word(excel)
         response = HttpResponse(doc,
                                 content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
         response['Content-Disposition'] = 'attachment; filename="file.docx"'
         return response
-    
+
+    # Экспорт в шаблон
     elif file_format == 'docTemplate':
         doc = fill_template_from_calculator1(results, STATIC_ROOT + '/docTemplates/template1.docx')
         response = HttpResponse(doc,
